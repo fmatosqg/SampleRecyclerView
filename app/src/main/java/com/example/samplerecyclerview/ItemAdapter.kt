@@ -5,14 +5,14 @@ import androidx.recyclerview.widget.DiffUtil
 class ItemAdapter : DataBindingAdapter<RecyclerViewItem>(DiffCallback) {
 
     private var currentState = true
-    
+
     override fun getItemViewType(position: Int) = R.layout.item_recycler_view
 
     override fun onBindViewHolder(holder: DataBindingViewHolder<RecyclerViewItem>, position: Int) {
         val item = getItem(position)
-        holder.bind(item, currentState)
+        holder.bind(item, position, currentState)
     }
-    
+
     fun toggleState() {
         currentState = !currentState
         notifyDataSetChanged()

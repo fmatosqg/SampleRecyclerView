@@ -14,23 +14,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-        
+
         adapter = ItemAdapter()
         val pageSnapHelper = PagerSnapHelper()
         recyclerView.adapter = adapter
         pageSnapHelper.attachToRecyclerView(recyclerView)
-        
-        
-        adapter.submitList(listOf(
-            RecyclerViewItem("Flower"),
-            RecyclerViewItem("Bear"),
-            RecyclerViewItem("Car"),
-            RecyclerViewItem("House"),
-            RecyclerViewItem("Sport"),
-            RecyclerViewItem("Garden")
-        ))
-        
-        button.setOnClickListener { 
+        recyclerView.setItemViewCacheSize(0)
+
+        adapter.submitList(
+            listOf(
+                RecyclerViewItem("Flower"),
+                RecyclerViewItem("Bear"),
+                RecyclerViewItem("Car"),
+                RecyclerViewItem("House"),
+                RecyclerViewItem("Sport"),
+                RecyclerViewItem("Sport 2"),
+                RecyclerViewItem("Sport 3"),
+                RecyclerViewItem("Garden")
+            )
+        )
+
+        button.setOnClickListener {
             adapter.toggleState()
         }
     }
